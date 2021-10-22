@@ -10,17 +10,17 @@
     <h1>Promedio, Mediana y moda</h1>
     <section>
       <h2>Promedio</h2>
-      <p>Esto se pueden observar en el console</p>
     </section>
 
     <section>
-      <h2>Calcular el promedio y mediana de datos introducidos</h2>
+      <h2>Calcular el promedio, mediana y moda de datos introducidos</h2>
       <form>
-        <label for="list"> Escibe datos (en numero) </label>
+        <label for="list"> Escibir datos </label>
         <input id="list" type="number" />
         <button type="button" onclick="onClickButtonAgregardato()">
           Agragar dato
         </button>
+        <p id="inputDatos"></p>
         <button type="button" onclick="onClickButtonPromedio()">
           Calcular Promedio
         </button>
@@ -29,6 +29,10 @@
           Calcular Mediana
         </button>
         <p id="medianaText"></p>
+        <button type="button" onclick="onClickButtonModa()">
+          Calcular Moda
+        </button>
+        <p id="modaText"></p>
       </form>
     </section>
 

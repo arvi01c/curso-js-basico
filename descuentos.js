@@ -47,7 +47,7 @@ console.log({
 // seran asi cupon 5% cupon01 10% cupon02 20% cupoon 35%
 
 // 1. saber que clases de cupones existen
-const cuponts = ['cupon', 'cuponn', 'cuponnn', 'cupoon'];
+const cuponts = ['cuponn', 'cupon', 'cuponnn', 'cupoon'];
 // 2. que el usuario introdusca su cupon
 
 function onClickButtonPriceWihtCupon() {
@@ -78,7 +78,14 @@ function onClickButtonPriceWihtCupon() {
 
   // 4. imprimir en pantalla
   let resultPts = document.getElementById('ResultP');
-  if (descuentoCupon === (5 || 10 || 20 || 35)) {
+  // if (descuentoCupon === (5 || 10 || 20 || 35)) Yo lo queria hacer asi pero no esta funcionando
+  if (descuentoCupon === 5) {
+    resultPts.innerText = 'El precio con descuento son $' + precioConCupon;
+  } else if (descuentoCupon === 10) {
+    resultPts.innerText = 'El precio con descuento son $' + precioConCupon;
+  } else if (descuentoCupon === 20) {
+    resultPts.innerText = 'El precio con descuento son $' + precioConCupon;
+  } else if (descuentoCupon === 35) {
     resultPts.innerText = 'El precio con descuento son $' + precioConCupon;
   } else {
     resultPts.innerText = 'El cupón ' + discountvalues + ' no es válido';

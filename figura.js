@@ -1,4 +1,4 @@
-//codigo cuadrado
+/* //codigo cuadrado
 console.group('Cuadrado');
 const ladoCuadrado = 5;
 console.log('los lados del cuadrado miden ' + ladoCuadrado + ' cm');
@@ -109,11 +109,19 @@ function areaCircle(radio) {
   const pi = Math.PI;
   return 'el area del circulo es ' + radio * radio * pi + ' cm²';
 }
-
+ */
 //Aqui empezamos a intereactuar con HTML
 // para leer algo en html con js
 // document.getElementById('nombredelElemento')
 // cuadrado
+function perimetroSquare(lado) {
+  return lado * 4;
+}
+
+function areaSquare(lado) {
+  return lado * lado;
+}
+
 function calcularPerimetroCuadrado() {
   const input = document.getElementById('InputCuadrado');
   const value = input.value;
@@ -132,6 +140,22 @@ function calcularAreaCuadrado() {
 
 //traingulo
 
+function perimetroTriangle(lado1, lado2, lado3) {
+  const perimetro = lado1 + lado2 + lado3;
+  return (
+    'los lados del triangulo miden ' +
+    lado1 +
+    ', ' +
+    lado2 +
+    ', ' +
+    lado3 +
+    ', ' +
+    ' cm y su perimetro es ' +
+    perimetro +
+    ' cm'
+  );
+}
+
 function calcularPerimetroTriangulo() {
   //debe haber una mejor forma de btener datos es horrible, ademas
 
@@ -149,17 +173,38 @@ function calcularPerimetroTriangulo() {
   alert(perimetro);
 }
 //NO esta funcionando ver bien porque
-function calcularAreaTriangulo() {
-  const input = document.getElementById('InputTriangulo');
-  const value = Number(input.value);
-  const input2 = document.getElementById('InputTraingulo2');
-  const value2 = Number(input2.value);
+function areaTriangle(lado, altura) {
+  return 'el area del triangulo mide ' + (lado * altura) / 2 + ' cm²';
+}
 
-  const area = areaTriangle(value, value2);
+function calcularAreaTriagulo() {
+  const input = document.getElementById('InputTriangulo');
+  const base = Number(input.value);
+  const input1 = document.getElementById('InputTrianguloAltura');
+  const altura = Number(input1.value);
+
+  const area = areaTriangle(base, altura);
   alert(area);
 }
 
 // circulo
+function perimetroCircle(radio) {
+  const pi = Math.PI;
+  return (
+    'el radio mide ' +
+    radio +
+    ' y el diametro ' +
+    radio * 2 +
+    ', y su perimetro es ' +
+    pi * radio * 2 +
+    ' con pi igual a ' +
+    pi
+  );
+}
+function areaCircle(radio) {
+  const pi = Math.PI;
+  return 'el area del circulo es ' + radio * radio * pi + ' cm²';
+}
 
 function calcularPerimetrocirculo() {
   const input = document.getElementById('Inputcirculo');
@@ -191,24 +236,28 @@ function calcularAlturaTrianguloIso() {
   const input1 = document.getElementById('InputTriangulo1');
   const value1 = Number(input1.value);
  */
-  const input = document.getElementById('InputTriangulo');
-  const value = Number(input.value);
-  console.log(value);
-  const input0 = document.getElementById('InputTriangulo0');
-  const value0 = Number(input0).value;
-  console.log(value0);
-  const input1 = document.getElementById('InputTriangulo1');
-  const value1 = Number(input1.value);
-  console.log(value1);
+  const input = document.getElementById('InputTrainguloIso');
+  const val = Number(input.value);
+
+  const input0 = document.getElementById('InputTrainguloIso0');
+  const val0 = Number(input0.value);
+
+  const input1 = document.getElementById('InputTrainguloIso1');
+  const val1 = Number(input1.value);
 
   // c²=b²+(a/2)²
   // c son los datos iguales y b el dato a buscar la altura
   function esIsoceles(dato, dato0, dato1) {
     //ademas de probar si es isoceles tambien calcula la altura
     function altura(entrada, entrada0) {
+      // lo guardo en una varible por buenas practicas pero podria meter la formula directamente en el return
+      const higt = Math.sqrt(
+        entrada * entrada - (entrada0 / 2) * (entrada0 / 2)
+      );
       //b²=c²-(a/2)² siendo cla diagobnal de los datos lados iguales
-      return Math.sqrt(entrada * entrada - (entrada0 / 2) * (entrada0 / 2));
+      return higt;
     }
+
     if (dato === dato1) {
       return altura(dato, dato0);
     } else if (dato === dato0) {
@@ -220,8 +269,6 @@ function calcularAlturaTrianguloIso() {
     }
   }
 
-  const alturaIsoceles = esIsoceles(value, value0, value1);
-  //! Algo esta fallando no se con sinceridad que es pero entiendo la logica
-  //! Por el momento lo dejare así
+  const alturaIsoceles = esIsoceles(val, val0, val1) + ' cm';
   alert(alturaIsoceles);
 }
